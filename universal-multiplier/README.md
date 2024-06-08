@@ -7,7 +7,7 @@ Rivals of Aether doesn't have native support for fractional damage, which can be
 ### init.gml  
 ```
 u_mult_damage_buffer = 0; // shared variable, will be accessed by other u_mult instances
-mult_add = 0.5;			  // amount to add on top of base damage
+mult_add = 0.5;	          // amount to add on top of base damage
 ```
 
 ###other_init.gml  
