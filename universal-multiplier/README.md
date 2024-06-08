@@ -10,12 +10,12 @@ u_mult_damage_buffer = 0; // shared variable, will be accessed by other u_mult i
 mult_add = 0.5;	          // amount to add on top of base damage
 ```
 
-###other_init.gml  
+### other_init.gml  
 ```
 u_mult_damage_buffer = 0;
 ```
 
-###update.gml  
+### update.gml  
 ```
 // Reset fractional damage on death
 with object_index { // oPlayer or oTestPlayer
@@ -25,7 +25,7 @@ with object_index { // oPlayer or oTestPlayer
 }
 ```
 
-###hit_player.gml
+### hit_player.gml
 ```
 // Applies the multiplier.
 var mult_damage = my_hitboxID.damage * mult_add; // extra damage due to multiplier
