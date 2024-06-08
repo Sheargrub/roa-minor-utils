@@ -79,3 +79,5 @@ var col = (ht_status == 2) ? c_white : get_player_hud_color(player);
 draw_sprite_ext(sprite_get("_SSL_hud_cssbutton"), ht_status-1+ht_iindex_offset, x+ht_x, y+ht_y, 1, 1, 0, col, 1);
 draw_sprite(sprite_get("_SSL_hud_csspercent"), ht_status-1, x+ht_x, y+ht_y);
 ```
+
+With that, the button should be added! If you'd like to change its position, you can do so by modifying the various ``ht_x`` and ``ht_y`` values in css_init. You may also want to add [Supersonic's CPU toggle helper](https://github.com/SupersonicNK/roa-workshop-templates/tree/master/css-cpu-hover) to make these sorts of buttons easier to use in local play.
