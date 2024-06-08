@@ -10,13 +10,13 @@ If you don't already have it, you'll need to have installed the SSL HUD to your 
 Then, copy the contents of the above [sprites folder](https://github.com/Sheargrub/roa-minor-utils/tree/main/ssl-hud-csstoggle/sprites) to your character and add the following code anywhere within the appropriate scripts.  
 
 ### init.gml  
-```
+```gml
 SSL_HUD = get_synced_var(player); // this should replace any existing code that sets SSL_HUD
 ```
 
 ### css_init.gml  
 (You may have to create this file.)  
-```
+```gml
 // Detects a fresh load. Defaulting to 2 enables the hud by default.
 if (get_synced_var(player) != clamp(get_synced_var(player), 1, 2)) set_synced_var(player, 2); 
 
@@ -41,7 +41,7 @@ ht_hovered = false;
 
 ### css_update.gml  
 (You may have to create this file.)  
-```
+```gml
 var cursor_x = get_instance_x(cursor_id);
 var cursor_y = get_instance_y(cursor_id);
 
@@ -73,7 +73,7 @@ if (ht_hovered && menu_a_pressed) {
 ```
 
 ### css_draw.gml  
-```
+```gml
 var ht_iindex_offset = ht_hovered ? (menu_a_down ? 4 : 2) : 0;
 var col = (ht_status == 2) ? c_white : get_player_hud_color(player);
 draw_sprite_ext(sprite_get("_SSL_hud_cssbutton"), ht_status-1+ht_iindex_offset, x+ht_x, y+ht_y, 1, 1, 0, col, 1);

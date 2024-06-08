@@ -9,17 +9,17 @@ The below code provides a reliable framework for implementing LWO-based particle
 > Note also that this approach will cause particles to stop being drawn while ``visible == false``, so it's not suitable for effects that spawn upon dying.
 
 ### init.gml
-```
+```gml
 lfx_list = ds_list_create();
 ```
 
 ### unload.gml
-```
+```gml
 ds_list_destroy(lfx_list); // important: ds_lists must be manually destroyed in this manner to prevent memory leaks
 ```
 
 ### Particle spawner function (usable in any update script)
-```
+```gml
 #define spawn_lfx(in_sprite, _x, _y, in_lifetime, in_spr_dir, in_foreground, in_hsp, in_vsp)
 var new_lfx = {
     lfx_x : _x,
@@ -36,7 +36,7 @@ ds_list_add(lfx_list, new_lfx);
 ```
 
 ### update.gml
-```
+```gml
 for (var i = 0; i < ds_list_size(lfx_list); i++) {
     var lfx = ds_list_find_value(lfx_list, i);
     lfx.lfx_lifetime++;
@@ -50,7 +50,7 @@ for (var i = 0; i < ds_list_size(lfx_list); i++) {
 ```
 
 ### pre_draw.gml
-```
+```gml
 for (var i = 0; i < ds_list_size(lfx_list); i++) {
     var lfx = ds_list_find_value(lfx_list, i);
     if (!lfx.lfx_foreground) { // only draw bg particles
@@ -61,7 +61,7 @@ for (var i = 0; i < ds_list_size(lfx_list); i++) {
 ```
 
 ### post_draw.gml
-```
+```gml
 for (var i = 0; i < ds_list_size(lfx_list); i++) {
     var lfx = ds_list_find_value(lfx_list, i);
     if (lfx.lfx_foreground) { // only draw fg particles

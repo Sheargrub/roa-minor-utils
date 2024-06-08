@@ -5,18 +5,18 @@ Rivals of Aether doesn't have native support for fractional damage, which can be
 > Be careful: a damage multiplier alone rarely feels impactful, which can lead to a disconnect between the gamefeel of a character and the actual strength of their scaling. Always be sure to add in other tells like hitpause increases or SFX changes when applying damage or knockback buffs.
 
 ### init.gml  
-```
+```gml
 u_mult_damage_buffer = 0; // shared variable, will be accessed by other u_mult instances
 mult_add = 0.5;	          // amount to add on top of base damage
 ```
 
 ### other_init.gml  
-```
+```gml
 u_mult_damage_buffer = 0;
 ```
 
 ### update.gml  
-```
+```gml
 // Reset fractional damage on death
 with object_index { // oPlayer or oTestPlayer
     if (!clone && (state == PS_DEAD || state == PS_RESPAWN)) {
@@ -26,7 +26,7 @@ with object_index { // oPlayer or oTestPlayer
 ```
 
 ### hit_player.gml
-```
+```gml
 // Applies the multiplier.
 var mult_damage = my_hitboxID.damage * mult_add; // extra damage due to multiplier
 take_damage(hit_player_obj.player, player, floor(mult_damage));
