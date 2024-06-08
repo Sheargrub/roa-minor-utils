@@ -22,35 +22,59 @@ if (get_synced_var(player) != clamp(get_synced_var(player), 1, 2)) set_synced_va
 
 ht_status = get_synced_var(player); // should be 1 or 2, regardless of how synced_var is handled
 
-ht_lx = 66;
-ht_rx = ht_lx+30;
-ht_ty = 169;
-ht_by = ht_ty+26;
+ht_w = 30;
+ht_h = 26;
 
-ht_x_offset = 0;
-ht_cpu_x_offset = -14;
+ht_x_default = 74;
+ht_y_default = 178;
+ht_x_cpu = 60;
+ht_y_cpu = 178;
+ht_x_online = 172;
+ht_y_online = 36;
+
+ht_x = ht_x_default;
+ht_y = ht_y_default;
+
+ht_col_online = make_color_rgb(66, 229, 100);
+ht_hovered = false;
 ```
 
-### css_draw.gml  
+### css_update.gml  
+(You may have to create this file.)  
 ```
 var cursor_x = get_instance_x(cursor_id);
 var cursor_y = get_instance_y(cursor_id);
 
 // Account for CPUs
-ht_x_offset = (get_player_hud_color(player) == c_gray) ? ht_cpu_x_offset : 0;
-var ht_hovered = (temp_x+ht_lx+ht_x_offset < cursor_x && cursor_x < temp_x+ht_rx+ht_x_offset && temp_y+ht_ty < cursor_y && cursor_y < temp_y+ht_by);
+if (get_player_hud_color(player) == c_gray) {
+	ht_x = ht_x_cpu;
+	ht_y = ht_y_cpu;
+}
+else if (get_player_hud_color(player) == ht_col_online) {
+	ht_x = ht_x_online;
+	ht_y = ht_y_online;
+} else {
+    ht_x = ht_x_default;
+    ht_y = ht_y_default;
+}
+	
+ht_hovered = (x+ht_x < cursor_x && cursor_x < x+ht_x+ht_w && y+ht_y < cursor_y && cursor_y < y+ht_y+ht_h);
+suppress_cursor = ht_hovered;
 
 // 2 enables HUD, 1 disables it
 if (ht_hovered && menu_a_pressed) {
+	
 	ht_status = (ht_status == 2) ? 1 : 2;
     set_synced_var(player, ht_status);
     sound_play(asset_get("mfx_option"));
-    ht_flash_timer = 0;
-    ht_iindex_offset = 4;
+    
 }
+```
 
+### css_draw.gml  
+```
 var ht_iindex_offset = ht_hovered ? (menu_a_down ? 4 : 2) : 0;
 var col = (ht_status == 2) ? c_white : get_player_hud_color(player);
-draw_sprite_ext(sprite_get("_SSL_hud_cssbutton"), ht_status-1+ht_iindex_offset, temp_x+ht_lx+ht_x_offset, temp_y+ht_ty, 1, 1, 0, col, 1);
-draw_sprite(sprite_get("_SSL_hud_csspercent"), ht_status-1, temp_x+ht_lx+ht_x_offset, temp_y+ht_ty);
+draw_sprite_ext(sprite_get("_SSL_hud_cssbutton"), ht_status-1+ht_iindex_offset, x+ht_x, y+ht_y, 1, 1, 0, col, 1);
+draw_sprite(sprite_get("_SSL_hud_csspercent"), ht_status-1, x+ht_x, y+ht_y);
 ```
