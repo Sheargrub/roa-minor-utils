@@ -7,7 +7,7 @@ If you don't already have it, you'll need to have installed the SSL HUD to your 
 [SSL HUD buddy (contains installation instructions)](https://steamcommunity.com/sharedfiles/filedetails/?id=2622215994)  
 [SSL HUD files (mirror)](https://cdn.discordapp.com/attachments/511217874967461908/1248852305768611890/SSL-HUD-mirror.zip?ex=66652bd8&is=6663da58&hm=2f14a2bcc4b7a4203b6d49be3654674e24a83fb48cd77772dfba46d758668cf0&)  
 
-Then, copy the contents of the above sprites folder to your character and add the following code anywhere within the appropriate scripts.  
+Then, copy the contents of the above [sprites folder](https://github.com/Sheargrub/roa-minor-utils/tree/main/ssl-hud-csstoggle/sprites) to your character and add the following code anywhere within the appropriate scripts.  
 
 ### init.gml  
 ```
