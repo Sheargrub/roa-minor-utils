@@ -35,7 +35,7 @@ ht_y_online = 36;
 ht_x = ht_x_default;
 ht_y = ht_y_default;
 
-ht_col_online = make_color_rgb(66, 229, 100);
+ht_col_online = get_player_color(0);
 ht_hovered = false;
 ```
 
@@ -45,7 +45,8 @@ ht_hovered = false;
 var cursor_x = get_instance_x(cursor_id);
 var cursor_y = get_instance_y(cursor_id);
 
-// Account for CPUs
+// Account for CPUs/online
+ht_col_online = get_player_color(0);
 if (get_player_hud_color(player) == c_gray) {
 	ht_x = ht_x_cpu;
 	ht_y = ht_y_cpu;
