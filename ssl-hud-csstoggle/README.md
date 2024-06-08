@@ -3,9 +3,9 @@
 This utility extends Lognes's SSL HUD by adding a button to the CSS to toggle the HUD type on SSL characters, making it easier to access without use of the external buddy. The script relies on get/set_synced_var(), so you may need to make adjustments if you already use those functions.  
 
 ## Installation  
-If you don't already have it, you'll need to have installed the SSL HUD to your character. Please be sure to credit Lognes!
-[SSL HUD buddy (contains installation instructions)][https://steamcommunity.com/sharedfiles/filedetails/?id=2622215994]
-[SSL HUD files (mirror)][https://cdn.discordapp.com/attachments/511217874967461908/1248852305768611890/SSL-HUD-mirror.zip?ex=66652bd8&is=6663da58&hm=2f14a2bcc4b7a4203b6d49be3654674e24a83fb48cd77772dfba46d758668cf0&]
+If you don't already have it, you'll need to have installed the SSL HUD to your character. Please be sure to credit Lognes!  
+[SSL HUD buddy (contains installation instructions)](https://steamcommunity.com/sharedfiles/filedetails/?id=2622215994)
+[SSL HUD files (mirror)](https://cdn.discordapp.com/attachments/511217874967461908/1248852305768611890/SSL-HUD-mirror.zip?ex=66652bd8&is=6663da58&hm=2f14a2bcc4b7a4203b6d49be3654674e24a83fb48cd77772dfba46d758668cf0&)
 
 Then, copy the contents of the above sprites folder to your character and add the following code anywhere within the appropriate scripts.  
 
