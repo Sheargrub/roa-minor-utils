@@ -1,5 +1,7 @@
 # SSL Character Select HUD Toggle  
 
+> Notice: the primary SSL template has recently been updated with equivalent functionality. It comes with a host of other useful aesthetic improvements too, so consider upgrading to the new template instead if you have the time.
+
 This utility extends Lognes's SSL HUD by adding a button to the CSS to toggle the HUD type on SSL characters, making it easier to access without use of the external buddy. The script relies on get/set_synced_var(), so you may need to make adjustments if you already use those functions.  
 
 ## Installation  
